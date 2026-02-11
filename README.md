@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# nextjs-gcs-file-uploader
 
-## Getting Started
+Next.js 16 + TypeScript starter for secure direct browser uploads to Google Cloud Storage (GCS) via signed URLs.
 
-First, run the development server:
+## Preview
+
+[![Open uploader](./public/window.svg)](http://localhost:3000/upload)
+
+Quick link: [Open the uploader page](http://localhost:3000/upload)
+Quick link: [Jump to Tech Stack](#tech-stack)
+
+## Tech Stack
+
+- Next.js 16 App Router
+- TypeScript (strict)
+- Tailwind CSS v4
+- shadcn-style UI component patterns
+- Google Cloud Storage signed V4 PUT URLs
+- Zod validation on backend inputs
+
+## Folder Structure
+
+- `app/upload/page.tsx`: Upload page UI
+- `app/api/upload/sign/route.ts`: Auth-protected signing endpoint
+- `lib/gcs.ts`: GCS signing utilities
+- `lib/env.ts`: Environment validation
+- `lib/auth.ts`: Auth stub
+- `components/upload/uploader.tsx`: Drag/drop uploader client UI
+- `components/ui/*`: UI primitives
+
+## Environment Variables
+
+Copy and fill `.env.local`:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cp .env.example .env.local
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Required variables:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `GCS_BUCKET_NAME`
+- `GCP_PROJECT_ID`
+- `GCP_SERVICE_ACCOUNT_KEY` (JSON string)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## GCP Setup
 
-## Learn More
+1. Create a GCS bucket.
+2. Create a service account dedicated for uploads.
+3. Grant IAM roles to this service account:
 
-To learn more about Next.js, take a look at the following resources:
+- `roles/storage.objectCreator`
+- `roles/storage.objectViewer` (optional; needed only if your app reads files)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Create and download a JSON key for the service account.
+5. Put that JSON key into `GCP_SERVICE_ACCOUNT_KEY` as a single-line string in `.env.local`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Note: `publicUrl` is returned for convenience. It only opens directly if your bucket/object read policy allows public access (or you proxy file reads through your backend).
 
-## Deploy on Vercel
+## GCS CORS (Required)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Create `cors.json`:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```json
+[
+  {
+    "origin": ["http://localhost:3000"],
+    "method": ["PUT", "GET", "HEAD", "OPTIONS"],
+    "responseHeader": ["Content-Type", "x-goog-resumable"],
+    "maxAgeSeconds": 3600
+  }
+]
+```
+
+Apply and verify:
+
+```bash
+gsutil cors set cors.json gs://YOUR_BUCKET_NAME
+gsutil cors get gs://YOUR_BUCKET_NAME
+```
+
+## Auth Stub
+
+`/api/upload/sign` is protected by `requireUser()` in `lib/auth.ts`.
+
+This starter reads `x-user-id` from request headers as a placeholder auth mechanism. Replace this with your real auth provider session validation.
+
+## Run
+
+Install dependencies:
+
+```bash
+pnpm install
+```
+
+Start the app:
+
+```bash
+pnpm dev
+```
+
+Open [http://localhost:3000/upload](http://localhost:3000/upload).
