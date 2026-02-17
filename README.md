@@ -44,9 +44,11 @@ npx shadcn@latest add card progress badge
 
 ## Video Output
 
-Local preview:
+GitHub-friendly preview (click to open the MP4):
 
-<video src="./out/nextjs-gcs-uploader.mp4" controls width="960"></video>
+[![Watch uploader demo](./public/window.svg)](./out/nextjs-gcs-uploader.mp4)
+
+Direct link: [out/nextjs-gcs-uploader.mp4](./out/nextjs-gcs-uploader.mp4)
 
 ## Folder Structure
 
