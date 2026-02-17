@@ -58,7 +58,9 @@ Direct link: [nextjs-gcs-file-uploader.vercel.app/nextjs-gcs-uploader.mp4](https
 - `lib/gcs.ts`: GCS signing utilities
 - `lib/env.ts`: Environment validation
 - `lib/auth.ts`: Auth stub
+- `hooks/use-file-upload.ts`: Reusable upload logic hook (queue/progress/sign/upload)
 - `components/upload/uploader.tsx`: Drag/drop uploader client UI
+- `components/upload/upload-field.tsx`: React Hook Form `Controller` wrapper for uploader
 - `components/ui/*`: UI primitives
 
 ## Environment Variables
