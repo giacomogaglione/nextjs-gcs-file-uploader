@@ -47,9 +47,9 @@ npx shadcn@latest add card progress badge
 
 GitHub-friendly preview (click to open the MP4):
 
-[![Watch uploader demo](./public/upload-screenshot.png)](./public/nextjs-gcs-uploader.mp4)
+[![Watch uploader demo](./public/upload-screenshot.png)](https://nextjs-gcs-file-uploader.vercel.app/nextjs-gcs-uploader.mp4)
 
-Direct link: [public/nextjs-gcs-uploader.mp4](./public/nextjs-gcs-uploader.mp4)
+Direct link: [nextjs-gcs-file-uploader.vercel.app/nextjs-gcs-uploader.mp4](https://nextjs-gcs-file-uploader.vercel.app/nextjs-gcs-uploader.mp4)
 
 ## Folder Structure
 
