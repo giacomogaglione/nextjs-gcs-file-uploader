@@ -18,6 +18,30 @@ Quick link: [Jump to Tech Stack](#tech-stack)
 - Google Cloud Storage signed V4 PUT URLs
 - Zod validation on backend inputs
 
+## shadcn CLI / Registry
+
+This project is configured for shadcn CLI via `/Users/jst/Desktop/nextjs-gcs-file-uploader/components.json`.
+
+Initialize or re-sync shadcn config:
+
+```bash
+pnpm ui:init
+```
+
+Install components from shadcn registry:
+
+```bash
+pnpm ui:add button
+pnpm ui:add card progress badge
+```
+
+`npx` equivalents:
+
+```bash
+npx shadcn@latest add button
+npx shadcn@latest add card progress badge
+```
+
 ## Folder Structure
 
 - `app/upload/page.tsx`: Upload page UI

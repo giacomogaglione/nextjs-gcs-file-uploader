@@ -10,7 +10,9 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "ui:init": "pnpm dlx shadcn@latest init -d",
+    "ui:add": "pnpm dlx shadcn@latest add"
   },
   "dependencies": {
     "@google-cloud/storage": "^7.19.0",
