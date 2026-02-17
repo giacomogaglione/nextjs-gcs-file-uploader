@@ -42,6 +42,12 @@ npx shadcn@latest add button
 npx shadcn@latest add card progress badge
 ```
 
+## Video Output
+
+Local preview:
+
+<video src="./out/nextjs-gcs-uploader.mp4" controls width="960"></video>
+
 ## Folder Structure
 
 - `app/upload/page.tsx`: Upload page UI

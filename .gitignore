@@ -15,7 +15,8 @@
 
 # next.js
 /.next/
-/out/
+/out/*
+!/out/nextjs-gcs-uploader.mp4
 
 # production
 /build
@@ -39,3 +40,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# remotion local files (do not commit)
+/video/
+/remotion.config.ts
+/.remotion/
