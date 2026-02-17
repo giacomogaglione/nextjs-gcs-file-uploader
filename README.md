@@ -5,6 +5,7 @@ Next.js 16 + TypeScript starter for secure direct browser uploads to Google Clou
 ## Preview
 
 [![Open uploader](./public/upload-screenshot.png)](http://localhost:3000/upload)
+[![Homepage](./public/homepage-screenshot.png)](./public/homepage-screenshot.png)
 
 Quick link: [Open the uploader page](http://localhost:3000/upload)
 Quick link: [Jump to Tech Stack](#tech-stack)
