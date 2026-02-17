@@ -4,7 +4,7 @@ Next.js 16 + TypeScript starter for secure direct browser uploads to Google Clou
 
 ## Preview
 
-[![Open uploader](./public/window.svg)](http://localhost:3000/upload)
+[![Open uploader](./public/upload-screenshot.png)](http://localhost:3000/upload)
 
 Quick link: [Open the uploader page](http://localhost:3000/upload)
 Quick link: [Jump to Tech Stack](#tech-stack)
@@ -46,7 +46,7 @@ npx shadcn@latest add card progress badge
 
 GitHub-friendly preview (click to open the MP4):
 
-[![Watch uploader demo](./public/window.svg)](./out/nextjs-gcs-uploader.mp4)
+[![Watch uploader demo](./public/upload-screenshot.png)](./out/nextjs-gcs-uploader.mp4)
 
 Direct link: [out/nextjs-gcs-uploader.mp4](./out/nextjs-gcs-uploader.mp4)
 
